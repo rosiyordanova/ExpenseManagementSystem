@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - ExpenseManagementSystem</title>
+
+    <!-- Bootstrap from the local lib (you can remove the CDN if you prefer local files) -->
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" /> <!-- Local Bootstrap CSS -->
+    <!-- Your custom CSS -->
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" /> <!-- Link to custom site CSS -->
+    <!-- If you don't want the CDN, remove the following line -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEJtP7pC2X89fnjXjMS6uJ7jFw79F/JVg0LYrVsV5WfZnU5TrJYktl4pbK7I2" crossorigin="anonymous"
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container-fluid">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">ExpenseManagementSystem</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                        </li>
+                    </ul>
+                    <button id="registerButton" class="btn btn-primary">Register</button>
+                    <button id="loginButton" class="btn btn-primary">Login</button>
+
+                    <script>
+                        // If you want buttons to redirect
+                        document.getElementById("registerButton").onclick = function () {
+                            window.location.href = '/Account/Register'; // Redirect to Register page
+                        };
+                        document.getElementById("loginButton").onclick = function () {
+                            window.location.href = '/Account/Login'; // Redirect to Login page
+                        };
+                    </script>
+
+                    <partial name="_LoginPartial" />
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody() <!-- Main content goes here -->
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2025 - ExpenseManagementSystem - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="~/lib/jquery/dist/jquery.min.js"></script> <!-- jQuery (if using it) -->
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script> <!-- Bootstrap JS -->
+    <script src="~/js/site.js" asp-append-version="true"></script> <!-- Custom site JS -->
+    @await RenderSectionAsync("Scripts", required: false) <!-- Allows additional scripts in specific views -->
+</body>
+</html>

@@ -1,0 +1,33 @@
+﻿@model ExpenseManagementSystem.Models.Transaction
+
+@{
+    ViewData["Title"] = "Create Transaction";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<form method="post">
+    <div class="form-group">
+        <label for="Date">Date</label>
+        <input type="date" id="Date" name="Date" class="form-control" required />
+    </div>
+
+    <div class="form-group">
+        <label for="Amount">Amount</label>
+        <input type="number" id="Amount" name="Amount" class="form-control" required />
+    </div>
+
+    <div class="form-group">
+        <label for="Category">Category</label>
+        <input type="text" id="Category" name="Category" class="form-control" required />
+    </div>
+
+    <div class="form-group">
+        <label for="Description">Description</label>
+        <textarea id="Description" name="Description" class="form-control" required></textarea>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Save Transaction</button>
+</form>
+
+<a href="@Url.Action("Index", "Transactions")" class="btn btn-secondary">Back to Transactions</a>
